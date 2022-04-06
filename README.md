@@ -40,7 +40,7 @@ tau0 = (torch.ones(N,N) - torch.eye(N)).to(device)
 ptau0  = tau0.clone()
 tau0_, sum_es = initVBS(N, device)
 
-for t in range(1, 4):
+for t in range(1, timesteps):
     yt = obs[t]
     xit_1, log_wt_1 = xit, log_wt
     xit, log_wt, At_1 = smc.step(xit, log_wt.softmax(0), yt)
